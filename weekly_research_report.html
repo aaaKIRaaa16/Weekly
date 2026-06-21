@@ -161,13 +161,38 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                width: 30px;
+                position: relative;
+                width: 36px;
                 height: 30px;
-                border-radius: 6px;
-                color: #0a0c10;
-                background: var(--accent);
-                font-size: 16px;
+                margin-top: 8px;
+                border-radius: 5px 5px 8px 8px;
+                color: #1f1300;
+                background: linear-gradient(135deg, #f8d56b, #b7791f);
+                font-size: 15px;
                 font-weight: 900;
+                box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+            }
+            .ranking-number::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: -9px;
+                height: 12px;
+                background: inherit;
+                clip-path: polygon(0 100%, 14% 18%, 32% 100%, 50% 0, 68% 100%, 86% 18%, 100% 100%);
+            }
+            .ranking-number span {
+                position: relative;
+                z-index: 1;
+            }
+            .rank-2 .ranking-number {
+                color: #111827;
+                background: linear-gradient(135deg, #f3f4f6, #94a3b8);
+            }
+            .rank-3 .ranking-number {
+                color: #1f1300;
+                background: linear-gradient(135deg, #d99a5f, #92400e);
             }
             .metric > span {
                 display: block;
@@ -231,12 +256,12 @@
                 gap: 11px;
                 margin: 0;
                 font-size: 23px;
-                font-weight: 500;
+                font-weight: 600;
                 line-height: 1.15;
             }
             .member-name {
                 color: var(--text);
-                font-weight: 500;
+                font-weight: 600;
                 letter-spacing: 0;
             }
             .grade-text {
@@ -285,7 +310,8 @@
             .hours-badge {
                 position: relative;
                 min-width: 150px;
-                padding: 16px 12px 10px;
+                min-height: 78px;
+                padding: 12px;
                 border: 1px solid rgba(216, 200, 255, 0.40);
                 border-radius: 6px;
                 text-align: center;
@@ -314,19 +340,19 @@
                 font-variant-numeric: tabular-nums;
             }
             .weekly-hours {
-                padding-top: 28px;
+                padding-top: 12px;
             }
             .weekly-hours span {
-                padding-right: 64px;
+                padding-right: 42px;
                 text-align: left;
             }
             .weekly-hours > .member-change {
                 position: absolute;
-                top: 6px;
-                right: 6px;
+                top: 8px;
+                right: 8px;
                 margin: 0;
                 min-height: 18px;
-                padding: 2px 6px;
+                padding: 2px 7px;
                 font-size: 10px;
                 font-style: normal;
             }
@@ -512,12 +538,12 @@
                 <div class="lab-total-card">
                     <span>研究室全体の1週間研究時間</span>
                     <strong>296.7 h</strong>
-                    <div class="week-change positive">前週比 +14.3%</div>
+                    <div class="week-change positive">+14.3%</div>
                 </div>
             </header>
 
             <div class="top-summary">
-                <div class="metric ranking-card"><div class="ranking-head"><span class="ranking-number">1</span><span>研究室時間ランキング</span></div><strong>42.5 h</strong><p><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></p></div><div class="metric ranking-card"><div class="ranking-head"><span class="ranking-number">2</span><span>研究室時間ランキング</span></div><strong>35.0 h</strong><p><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></p></div><div class="metric ranking-card"><div class="ranking-head"><span class="ranking-number">3</span><span>研究室時間ランキング</span></div><strong>28.2 h</strong><p><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></p></div>
+                <div class="metric ranking-card rank-1"><div class="ranking-head"><span class="ranking-number"><span>1</span></span><span>研究室時間ランキング</span></div><strong>42.5 h</strong><p><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></p></div><div class="metric ranking-card rank-2"><div class="ranking-head"><span class="ranking-number"><span>2</span></span><span>研究室時間ランキング</span></div><strong>35.0 h</strong><p><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></p></div><div class="metric ranking-card rank-3"><div class="ranking-head"><span class="ranking-number"><span>3</span></span><span>研究室時間ランキング</span></div><strong>28.2 h</strong><p><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></p></div>
             </div>
 
             
@@ -528,7 +554,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 28.1h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 14.1h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 11.4h</span><span class="member-place-chip" style="background:#EA580C;color:white">TA 2.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">先週比 +27.8%</em><span>1週間の研究時間</span><strong>42.2h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">+27.8%</em><span>1週間の研究時間</span><strong>42.2h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>406.8h</strong></div>
                 </div>
             </div>
@@ -554,7 +580,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 24.9h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">先週比 -14.2%</em><span>1週間の研究時間</span><strong>24.9h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">-14.2%</em><span>1週間の研究時間</span><strong>24.9h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>269.4h</strong></div>
                 </div>
             </div>
@@ -580,7 +606,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 27.4h</span><span class="member-place-chip" style="background:#EA580C;color:white">TA 4.0h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 2.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">先週比 +91.0%</em><span>1週間の研究時間</span><strong>27.4h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">+91.0%</em><span>1週間の研究時間</span><strong>27.4h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>188.9h</strong></div>
                 </div>
             </div>
@@ -606,7 +632,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 20.5h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">先週比 +7.7%</em><span>1週間の研究時間</span><strong>20.5h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">+7.7%</em><span>1週間の研究時間</span><strong>20.5h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>225.5h</strong></div>
                 </div>
             </div>
@@ -632,7 +658,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 20.6h</span><span class="member-place-chip" style="background:#EA580C;color:white">TA 5.3h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 3.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">先週比 +52.3%</em><span>1週間の研究時間</span><strong>23.6h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">+52.3%</em><span>1週間の研究時間</span><strong>23.6h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>268.0h</strong></div>
                 </div>
             </div>
@@ -658,7 +684,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 17.0h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 6.1h</span><span class="member-place-chip" style="background:#EA580C;color:white">TA 5.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">先週比 +2.7%</em><span>1週間の研究時間</span><strong>17.0h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">+2.7%</em><span>1週間の研究時間</span><strong>17.0h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>199.1h</strong></div>
                 </div>
             </div>
@@ -684,7 +710,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#BE185D;color:white">自宅 7.0h</span><span class="member-place-chip" style="background:#2563EB;color:white">研究室 4.0h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 2.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">先週比 -45.0%</em><span>1週間の研究時間</span><strong>11.0h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">-45.0%</em><span>1週間の研究時間</span><strong>11.0h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>192.0h</strong></div>
                 </div>
             </div>
@@ -710,7 +736,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#B7791F;color:white">授業 26.0h</span><span class="member-place-chip" style="background:#2563EB;color:white">研究室 18.2h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 16.4h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">先週比 +12.8%</em><span>1週間の研究時間</span><strong>34.6h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">+12.8%</em><span>1週間の研究時間</span><strong>34.6h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>281.9h</strong></div>
                 </div>
             </div>
@@ -736,7 +762,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 28.2h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 2.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">先週比 +89.4%</em><span>1週間の研究時間</span><strong>28.2h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">+89.4%</em><span>1週間の研究時間</span><strong>28.2h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>203.4h</strong></div>
                 </div>
             </div>
@@ -762,7 +788,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 35.0h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 4.0h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 1.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">先週比 -14.3%</em><span>1週間の研究時間</span><strong>36.0h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">-14.3%</em><span>1週間の研究時間</span><strong>36.0h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>482.0h</strong></div>
                 </div>
             </div>
@@ -788,7 +814,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#BE185D;color:white">自宅 12.0h</span><span class="member-place-chip" style="background:#2563EB;color:white">研究室 8.3h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">先週比 -18.3%</em><span>1週間の研究時間</span><strong>20.3h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">-18.3%</em><span>1週間の研究時間</span><strong>20.3h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>250.2h</strong></div>
                 </div>
             </div>
@@ -814,7 +840,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 13.5h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 0.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">先週比 -22.7%</em><span>1週間の研究時間</span><strong>13.5h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">-22.7%</em><span>1週間の研究時間</span><strong>13.5h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>299.9h</strong></div>
                 </div>
             </div>
@@ -840,7 +866,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 8.5h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 8.0h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 3.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">先週比 -52.1%</em><span>1週間の研究時間</span><strong>11.5h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change negative">-52.1%</em><span>1週間の研究時間</span><strong>11.5h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>204.5h</strong></div>
                 </div>
             </div>
@@ -866,7 +892,7 @@
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 42.5h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 2.0h</span><span class="member-place-chip" style="background:#64748B;color:white">場所未設定 0.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">先週比 +34.9%</em><span>1週間の研究時間</span><strong>42.5h</strong></div>
+                    <div class="hours-badge weekly-hours"><em class="week-change member-change positive">+34.9%</em><span>1週間の研究時間</span><strong>42.5h</strong></div>
                     <div class="hours-badge secondary"><span>累計研究時間</span><strong>398.0h</strong></div>
                 </div>
             </div>
