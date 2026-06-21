@@ -157,42 +157,60 @@
                 font-size: 12px;
                 font-weight: 900;
             }
-            .ranking-number {
+            .ranking-crown {
+                --crown-color: #f5c84b;
+                --crown-base: #f9df86;
+                --crown-highlight: rgba(255, 255, 255, 0.42);
+                display: inline-grid;
+                grid-template-rows: 30px auto;
+                justify-items: center;
+                gap: 2px;
+                min-width: 46px;
+                color: var(--crown-color);
+            }
+            .ranking-crown svg {
+                display: block;
+                width: 48px;
+                height: 34px;
+                overflow: visible;
+                filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.28));
+            }
+            .ranking-crown .crown-body {
+                fill: var(--crown-color);
+                stroke: rgba(255, 255, 255, 0.30);
+                stroke-width: 1;
+            }
+            .ranking-crown .crown-base {
+                fill: var(--crown-base);
+                stroke: rgba(255, 255, 255, 0.28);
+                stroke-width: 1;
+            }
+            .ranking-crown circle {
+                fill: var(--crown-highlight);
+            }
+            .ranking-crown span {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                position: relative;
-                width: 36px;
-                height: 30px;
-                margin-top: 8px;
-                border-radius: 5px 5px 8px 8px;
-                color: #1f1300;
-                background: linear-gradient(135deg, #f8d56b, #b7791f);
-                font-size: 15px;
+                min-width: 22px;
+                min-height: 18px;
+                border-radius: 999px;
+                color: #0f0b14;
+                background: var(--crown-color);
+                font-size: 12px;
                 font-weight: 900;
-                box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+                line-height: 1;
+                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
             }
-            .ranking-number::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: -9px;
-                height: 12px;
-                background: inherit;
-                clip-path: polygon(0 100%, 14% 18%, 32% 100%, 50% 0, 68% 100%, 86% 18%, 100% 100%);
+            .rank-2 .ranking-crown {
+                --crown-color: #cbd5e1;
+                --crown-base: #e7edf7;
+                --crown-highlight: rgba(255, 255, 255, 0.55);
             }
-            .ranking-number span {
-                position: relative;
-                z-index: 1;
-            }
-            .rank-2 .ranking-number {
-                color: #111827;
-                background: linear-gradient(135deg, #f3f4f6, #94a3b8);
-            }
-            .rank-3 .ranking-number {
-                color: #1f1300;
-                background: linear-gradient(135deg, #d99a5f, #92400e);
+            .rank-3 .ranking-crown {
+                --crown-color: #c08457;
+                --crown-base: #d4a070;
+                --crown-highlight: rgba(255, 255, 255, 0.34);
             }
             .metric > span {
                 display: block;
@@ -543,7 +561,7 @@
             </header>
 
             <div class="top-summary">
-                <div class="metric ranking-card rank-1"><div class="ranking-head"><span class="ranking-number"><span>1</span></span><span>研究室時間ランキング</span></div><strong>42.5 h</strong><p><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></p></div><div class="metric ranking-card rank-2"><div class="ranking-head"><span class="ranking-number"><span>2</span></span><span>研究室時間ランキング</span></div><strong>35.0 h</strong><p><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></p></div><div class="metric ranking-card rank-3"><div class="ranking-head"><span class="ranking-number"><span>3</span></span><span>研究室時間ランキング</span></div><strong>28.2 h</strong><p><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></p></div>
+                <div class="metric ranking-card rank-1"><div class="ranking-head"><span class="ranking-crown" aria-label="rank"><svg viewBox="0 0 64 48" role="img" aria-hidden="true"><path class="crown-body" d="M8 38.5c3.5-7.7 5.3-15.1 6.2-24.2l14.1 12.6L32 8l3.7 18.9 14.1-12.6c0.9 9.1 2.7 16.5 6.2 24.2H8Z" /><path class="crown-base" d="M10 38.5h44c1.2 0 2.2 1 2.2 2.2v2.6c0 1.2-1 2.2-2.2 2.2H10c-1.2 0-2.2-1-2.2-2.2v-2.6c0-1.2 1-2.2 2.2-2.2Z" /><circle cx="14.2" cy="14.1" r="2.8" /><circle cx="32" cy="7.6" r="3.2" /><circle cx="49.8" cy="14.1" r="2.8" /></svg><span>1</span></span><span>研究室時間ランキング</span></div><strong>42.5 h</strong><p><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></p></div><div class="metric ranking-card rank-2"><div class="ranking-head"><span class="ranking-crown" aria-label="rank"><svg viewBox="0 0 64 48" role="img" aria-hidden="true"><path class="crown-body" d="M8 38.5c3.5-7.7 5.3-15.1 6.2-24.2l14.1 12.6L32 8l3.7 18.9 14.1-12.6c0.9 9.1 2.7 16.5 6.2 24.2H8Z" /><path class="crown-base" d="M10 38.5h44c1.2 0 2.2 1 2.2 2.2v2.6c0 1.2-1 2.2-2.2 2.2H10c-1.2 0-2.2-1-2.2-2.2v-2.6c0-1.2 1-2.2 2.2-2.2Z" /><circle cx="14.2" cy="14.1" r="2.8" /><circle cx="32" cy="7.6" r="3.2" /><circle cx="49.8" cy="14.1" r="2.8" /></svg><span>2</span></span><span>研究室時間ランキング</span></div><strong>35.0 h</strong><p><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></p></div><div class="metric ranking-card rank-3"><div class="ranking-head"><span class="ranking-crown" aria-label="rank"><svg viewBox="0 0 64 48" role="img" aria-hidden="true"><path class="crown-body" d="M8 38.5c3.5-7.7 5.3-15.1 6.2-24.2l14.1 12.6L32 8l3.7 18.9 14.1-12.6c0.9 9.1 2.7 16.5 6.2 24.2H8Z" /><path class="crown-base" d="M10 38.5h44c1.2 0 2.2 1 2.2 2.2v2.6c0 1.2-1 2.2-2.2 2.2H10c-1.2 0-2.2-1-2.2-2.2v-2.6c0-1.2 1-2.2 2.2-2.2Z" /><circle cx="14.2" cy="14.1" r="2.8" /><circle cx="32" cy="7.6" r="3.2" /><circle cx="49.8" cy="14.1" r="2.8" /></svg><span>3</span></span><span>研究室時間ランキング</span></div><strong>28.2 h</strong><p><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></p></div>
             </div>
 
             
