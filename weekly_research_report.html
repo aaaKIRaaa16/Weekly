@@ -12,7 +12,7 @@
                 --purple-600: #7c3aed;
                 --purple-100: #2a213b;
                 --purple-050: #050507;
-                --accent: #38bdf8;
+                --accent: #a78bfa;
                 --success: #22c55e;
                 --danger: #ef4444;
                 --surface: #111014;
@@ -198,7 +198,7 @@
                 justify-content: center;
                 min-width: 34px;
                 padding: 3px 6px;
-                border: 1px solid rgba(56, 189, 248, 0.45);
+                border: 1px solid rgba(167, 139, 250, 0.50);
                 border-radius: 4px;
                 color: var(--accent);
                 font-size: 11px;
@@ -228,24 +228,31 @@
             .member-title {
                 display: flex;
                 align-items: center;
-                gap: 9px;
+                gap: 12px;
                 margin: 0;
-                font-size: 24px;
+                font-size: 28px;
+                line-height: 1.15;
+            }
+            .member-name {
+                color: var(--text);
+                font-weight: 900;
+                letter-spacing: 0;
             }
             .grade-text {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                min-width: 46px;
-                min-height: 24px;
-                padding: 3px 8px;
-                border: 1px solid rgba(216, 200, 255, 0.58);
-                border-radius: 4px;
-                color: var(--purple-800);
-                font-size: 15px;
-                font-weight: 800;
+                min-width: 58px;
+                min-height: 34px;
+                padding: 5px 10px;
+                border: 1px solid rgba(167, 139, 250, 0.78);
+                border-radius: 6px;
+                color: var(--purple-900);
+                font-size: 16px;
+                font-weight: 900;
                 line-height: 1;
-                background: rgba(124, 58, 237, 0.12);
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.52), rgba(91, 43, 184, 0.24));
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
             }
             .member-place-legend {
                 display: flex;
@@ -275,8 +282,8 @@
                 flex-wrap: wrap;
             }
             .hours-badge {
-                min-width: 98px;
-                padding: 8px 11px;
+                min-width: 132px;
+                padding: 9px 12px;
                 border: 1px solid rgba(216, 200, 255, 0.40);
                 border-radius: 6px;
                 text-align: center;
@@ -290,10 +297,11 @@
             }
             .hours-badge span {
                 display: block;
-                margin-bottom: 2px;
+                margin-bottom: 4px;
                 color: var(--muted);
-                font-size: 10px;
+                font-size: 11px;
                 line-height: 1.1;
+                font-weight: 900;
             }
             .hours-badge strong {
                 display: block;
@@ -301,6 +309,13 @@
                 font-size: 19px;
                 line-height: 1.1;
                 font-variant-numeric: tabular-nums;
+            }
+            .member-change {
+                margin: 7px auto 0;
+                min-height: 20px;
+                padding: 3px 7px;
+                font-size: 11px;
+                font-style: normal;
             }
             .member-layout {
                 display: grid;
@@ -496,12 +511,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">D2</span><span>石原 卓也／Ishihara Takuya</span></h2>
+                    <h2 class="member-title"><span class="grade-text">D2</span><span class="member-name">石原 卓也／Ishihara Takuya</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 28.1h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 14.1h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 11.4h</span><span class="member-place-chip" style="background:#EA580C;color:white">TA 2.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>42.2h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>310.2h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>42.2h</strong><em class="week-change member-change positive">前週比 +27.8%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>406.8h</strong></div>
                 </div>
             </div>
 
@@ -522,12 +537,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">研究生</span><span>阿部 元暉／Abe Motoki</span></h2>
+                    <h2 class="member-title"><span class="grade-text">研究生</span><span class="member-name">阿部 元暉／Abe Motoki</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 24.9h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>24.9h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>174.4h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>24.9h</strong><em class="week-change member-change negative">前週比 -14.2%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>269.4h</strong></div>
                 </div>
             </div>
 
@@ -548,12 +563,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">M2</span><span>佐藤 瑞起／Sato Mizuki</span></h2>
+                    <h2 class="member-title"><span class="grade-text">M2</span><span class="member-name">佐藤 瑞起／Sato Mizuki</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 27.4h</span><span class="member-place-chip" style="background:#EA580C;color:white">TA 4.0h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 2.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>27.4h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>186.4h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>27.4h</strong><em class="week-change member-change positive">前週比 +91.0%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>188.9h</strong></div>
                 </div>
             </div>
 
@@ -574,12 +589,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">M2</span><span>植松 優／Uematsu Yu</span></h2>
+                    <h2 class="member-title"><span class="grade-text">M2</span><span class="member-name">植松 優／Uematsu Yu</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 20.5h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>20.5h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>225.5h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>20.5h</strong><em class="week-change member-change positive">前週比 +7.7%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>225.5h</strong></div>
                 </div>
             </div>
 
@@ -600,12 +615,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">M2</span><span>笠井 直弥／Kasai Naoya</span></h2>
+                    <h2 class="member-title"><span class="grade-text">M2</span><span class="member-name">笠井 直弥／Kasai Naoya</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 20.6h</span><span class="member-place-chip" style="background:#EA580C;color:white">TA 5.3h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 3.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>23.6h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>242.0h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>23.6h</strong><em class="week-change member-change positive">前週比 +52.3%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>268.0h</strong></div>
                 </div>
             </div>
 
@@ -626,12 +641,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">M1</span><span>若曽根 啓智／Wakasone Hironori</span></h2>
+                    <h2 class="member-title"><span class="grade-text">M1</span><span class="member-name">若曽根 啓智／Wakasone Hironori</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 17.0h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 6.1h</span><span class="member-place-chip" style="background:#EA580C;color:white">TA 5.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>17.0h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>190.1h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>17.0h</strong><em class="week-change member-change positive">前週比 +2.7%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>199.1h</strong></div>
                 </div>
             </div>
 
@@ -652,12 +667,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">B4</span><span>今井 惟斗／Imai Yuito</span></h2>
+                    <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">今井 惟斗／Imai Yuito</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#BE185D;color:white">自宅 7.0h</span><span class="member-place-chip" style="background:#2563EB;color:white">研究室 4.0h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 2.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>11.0h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>103.0h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>11.0h</strong><em class="week-change member-change negative">前週比 -45.0%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>192.0h</strong></div>
                 </div>
             </div>
 
@@ -678,12 +693,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">B4</span><span>福沢 輝／Fukuzawa Akira</span></h2>
+                    <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">福沢 輝／Fukuzawa Akira</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#B7791F;color:white">授業 26.0h</span><span class="member-place-chip" style="background:#2563EB;color:white">研究室 18.2h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 16.4h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>34.6h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>118.8h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>34.6h</strong><em class="week-change member-change positive">前週比 +12.8%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>281.9h</strong></div>
                 </div>
             </div>
 
@@ -704,12 +719,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">B4</span><span>根岸 桜介／Negishi Osuke</span></h2>
+                    <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">根岸 桜介／Negishi Osuke</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 28.2h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 2.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>28.2h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>168.4h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>28.2h</strong><em class="week-change member-change positive">前週比 +89.4%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>203.4h</strong></div>
                 </div>
             </div>
 
@@ -730,12 +745,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></h2>
+                    <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">秋吉 健吾／Akiyoshi Kengo</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 35.0h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 4.0h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 1.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>36.0h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>219.0h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>36.0h</strong><em class="week-change member-change negative">前週比 -14.3%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>482.0h</strong></div>
                 </div>
             </div>
 
@@ -756,12 +771,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">B4</span><span>板津 稜／Itatsu Ryo</span></h2>
+                    <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">板津 稜／Itatsu Ryo</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#BE185D;color:white">自宅 12.0h</span><span class="member-place-chip" style="background:#2563EB;color:white">研究室 8.3h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>20.3h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>159.5h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>20.3h</strong><em class="week-change member-change negative">前週比 -18.3%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>250.2h</strong></div>
                 </div>
             </div>
 
@@ -782,12 +797,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">B4</span><span>田島 秀英／Tajima Shuei</span></h2>
+                    <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">田島 秀英／Tajima Shuei</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 13.5h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 0.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>13.5h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>165.4h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>13.5h</strong><em class="week-change member-change negative">前週比 -22.7%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>299.9h</strong></div>
                 </div>
             </div>
 
@@ -808,12 +823,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">B4</span><span>手塚 悠太／Tezuka Yuta</span></h2>
+                    <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">手塚 悠太／Tezuka Yuta</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 8.5h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 8.0h</span><span class="member-place-chip" style="background:#BE185D;color:white">自宅 3.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>11.5h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>127.0h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>11.5h</strong><em class="week-change member-change negative">前週比 -52.1%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>204.5h</strong></div>
                 </div>
             </div>
 
@@ -834,12 +849,12 @@
         <section class="member-card">
             <div class="member-head">
                 <div>
-                    <h2 class="member-title"><span class="grade-text">B4</span><span>伊藤 蒼馬／Ito Soma</span></h2>
+                    <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">伊藤 蒼馬／Ito Soma</span></h2>
                     <div class="member-place-legend"><span class="member-place-chip" style="background:#2563EB;color:white">研究室 42.5h</span><span class="member-place-chip" style="background:#B7791F;color:white">授業 2.0h</span><span class="member-place-chip" style="background:#64748B;color:white">場所未設定 0.0h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge"><span>週合計</span><strong>42.5h</strong></div>
-                    <div class="hours-badge secondary"><span>研究室累計</span><strong>215.0h</strong></div>
+                    <div class="hours-badge"><span>1週間の研究時間</span><strong>42.5h</strong><em class="week-change member-change positive">前週比 +34.9%</em></div>
+                    <div class="hours-badge secondary"><span>累計研究時間</span><strong>398.0h</strong></div>
                 </div>
             </div>
 
