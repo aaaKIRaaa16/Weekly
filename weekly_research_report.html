@@ -12,6 +12,9 @@
                 --purple-600: #7c3aed;
                 --purple-100: #2a213b;
                 --purple-050: #050507;
+                --accent: #38bdf8;
+                --success: #22c55e;
+                --danger: #ef4444;
                 --surface: #111014;
                 --surface-2: #17141d;
                 --line: #3b314c;
@@ -38,8 +41,7 @@
             }
             .embed-page .report-head {
                 margin-bottom: 14px;
-                padding-bottom: 12px;
-                border-bottom-width: 5px;
+                padding: 16px;
             }
             .embed-page h1 {
                 font-size: 28px;
@@ -57,24 +59,82 @@
             }
             .report-head {
                 display: grid;
-                grid-template-columns: 1fr auto;
-                align-items: end;
-                gap: 24px;
-                border-bottom: 8px solid var(--purple-600);
-                padding-bottom: 18px;
-                margin-bottom: 28px;
+                grid-template-columns: minmax(0, 1fr) 300px;
+                align-items: stretch;
+                gap: 18px;
+                margin-bottom: 18px;
+                padding: 22px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: #0d0d12;
+            }
+            .report-title-block {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 8px;
+                min-width: 0;
+            }
+            .report-kicker {
+                color: var(--accent);
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
             }
             h1 {
                 margin: 0;
-                color: var(--purple-700);
-                font-size: 40px;
+                color: var(--text);
+                font-size: 38px;
                 font-weight: 700;
                 letter-spacing: 0;
+                line-height: 1.05;
             }
             .report-date {
-                font-size: 18px;
+                color: var(--muted);
+                font-size: 14px;
                 font-weight: 700;
-                color: var(--purple-800);
+            }
+            .lab-total-card {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 7px;
+                padding: 16px;
+                border: 1px solid #2d3748;
+                border-radius: 8px;
+                background: #12141b;
+            }
+            .lab-total-card span {
+                color: var(--muted);
+                font-size: 12px;
+                font-weight: 800;
+            }
+            .lab-total-card strong {
+                color: var(--text);
+                font-size: 30px;
+                line-height: 1;
+                font-variant-numeric: tabular-nums;
+            }
+            .week-change {
+                display: inline-flex;
+                align-items: center;
+                width: fit-content;
+                min-height: 24px;
+                padding: 4px 8px;
+                border-radius: 4px;
+                color: var(--muted);
+                background: rgba(148, 163, 184, 0.12);
+                font-size: 12px;
+                font-weight: 900;
+            }
+            .week-change.positive {
+                color: var(--success);
+                background: rgba(34, 197, 94, 0.13);
+            }
+            .week-change.negative {
+                color: var(--danger);
+                background: rgba(239, 68, 68, 0.13);
             }
             .top-summary {
                 display: grid;
@@ -86,18 +146,66 @@
                 background: var(--surface);
                 border: 1px solid var(--line);
                 border-radius: 8px;
-                padding: 14px 16px;
+                padding: 16px;
             }
-            .metric span {
+            .ranking-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+                color: var(--muted);
+                font-size: 12px;
+                font-weight: 900;
+            }
+            .ranking-number {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 30px;
+                border-radius: 6px;
+                color: #0a0c10;
+                background: var(--accent);
+                font-size: 16px;
+                font-weight: 900;
+            }
+            .metric > span {
                 display: block;
                 color: var(--muted);
                 font-size: 13px;
             }
             .metric strong {
                 display: block;
-                margin-top: 4px;
-                color: var(--purple-800);
-                font-size: 24px;
+                margin-top: 12px;
+                color: var(--text);
+                font-size: 28px;
+                line-height: 1;
+                font-variant-numeric: tabular-nums;
+            }
+            .ranking-card p {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                margin: 10px 0 0;
+                color: var(--text);
+                font-size: 14px;
+                font-weight: 800;
+                overflow-wrap: anywhere;
+            }
+            .ranking-grade {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 34px;
+                padding: 3px 6px;
+                border: 1px solid rgba(56, 189, 248, 0.45);
+                border-radius: 4px;
+                color: var(--accent);
+                font-size: 11px;
+                line-height: 1;
+            }
+            .muted-card {
+                opacity: 0.64;
             }
             .member-card {
                 background: var(--surface);
@@ -368,14 +476,20 @@
     <body class="">
         <div class="page">
             <header class="report-head">
-                <h1>Weekly Report</h1>
-                <div class="report-date">2026/06/15 - 2026/06/21</div>
+                <div class="report-title-block">
+                    <div class="report-kicker">Oda Laboratory</div>
+                    <h1>Weekly Report</h1>
+                    <div class="report-date">2026/06/15 - 2026/06/21</div>
+                </div>
+                <div class="lab-total-card">
+                    <span>研究室全体の1週間研究時間</span>
+                    <strong>296.7 h</strong>
+                    <div class="week-change positive">前週比 +14.3%</div>
+                </div>
             </header>
 
             <div class="top-summary">
-                <div class="metric"><span>対象週の合計研究時間</span><strong>353.2 h</strong></div>
-                <div class="metric"><span>メンバー数</span><strong>14</strong></div>
-                <div class="metric"><span>記録数</span><strong>120</strong></div>
+                <div class="metric ranking-card"><div class="ranking-head"><span class="ranking-number">1</span><span>研究室時間ランキング</span></div><strong>42.5 h</strong><p><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></p></div><div class="metric ranking-card"><div class="ranking-head"><span class="ranking-number">2</span><span>研究室時間ランキング</span></div><strong>35.0 h</strong><p><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></p></div><div class="metric ranking-card"><div class="ranking-head"><span class="ranking-number">3</span><span>研究室時間ランキング</span></div><strong>28.2 h</strong><p><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></p></div>
             </div>
 
             
