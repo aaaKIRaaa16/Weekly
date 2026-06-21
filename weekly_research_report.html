@@ -158,59 +158,74 @@
                 font-weight: 900;
             }
             .ranking-crown {
-                --crown-color: #f5c84b;
-                --crown-base: #f9df86;
-                --crown-highlight: rgba(255, 255, 255, 0.42);
-                display: inline-grid;
-                grid-template-rows: 30px auto;
-                justify-items: center;
-                gap: 2px;
-                min-width: 46px;
-                color: var(--crown-color);
-            }
-            .ranking-crown svg {
-                display: block;
-                width: 48px;
-                height: 34px;
-                overflow: visible;
-                filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.28));
-            }
-            .ranking-crown .crown-body {
-                fill: var(--crown-color);
-                stroke: rgba(255, 255, 255, 0.30);
-                stroke-width: 1;
-            }
-            .ranking-crown .crown-base {
-                fill: var(--crown-base);
-                stroke: rgba(255, 255, 255, 0.28);
-                stroke-width: 1;
-            }
-            .ranking-crown circle {
-                fill: var(--crown-highlight);
-            }
-            .ranking-crown span {
+                --crown-light: #fff0a8;
+                --crown-main: #f2ca3c;
+                --crown-dark: #d79a12;
+                --crown-orb: #edbd20;
+                --crown-base: #7c6956;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                min-width: 22px;
-                min-height: 18px;
-                border-radius: 999px;
-                color: #0f0b14;
-                background: var(--crown-color);
-                font-size: 12px;
+                width: 58px;
+                height: 46px;
+                flex: 0 0 58px;
+            }
+            .ranking-crown svg {
+                display: block;
+                width: 58px;
+                height: 46px;
+                overflow: visible;
+                filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.28));
+            }
+            .ranking-crown .crown-stop-light {
+                stop-color: var(--crown-light);
+            }
+            .ranking-crown .crown-stop-main {
+                stop-color: var(--crown-main);
+            }
+            .ranking-crown .crown-stop-dark {
+                stop-color: var(--crown-dark);
+            }
+            .ranking-crown .crown-body {
+                stroke: rgba(255, 255, 255, 0.36);
+                stroke-width: 1.1;
+                stroke-linejoin: round;
+            }
+            .ranking-crown .crown-shine {
+                fill: rgba(255, 255, 255, 0.20);
+            }
+            .ranking-crown .crown-base {
+                fill: var(--crown-base);
+                opacity: 0.92;
+            }
+            .ranking-crown .crown-orb {
+                fill: var(--crown-orb);
+                stroke: rgba(255, 255, 255, 0.32);
+                stroke-width: 0.9;
+            }
+            .ranking-crown .crown-rank-text {
+                fill: #fff9ea;
+                stroke: rgba(94, 79, 64, 0.78);
+                stroke-width: 5;
+                paint-order: stroke fill;
+                font-size: 30px;
                 font-weight: 900;
                 line-height: 1;
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+                dominant-baseline: central;
             }
             .rank-2 .ranking-crown {
-                --crown-color: #cbd5e1;
-                --crown-base: #e7edf7;
-                --crown-highlight: rgba(255, 255, 255, 0.55);
+                --crown-light: #edf4fa;
+                --crown-main: #c7d1da;
+                --crown-dark: #8fa1ad;
+                --crown-orb: #b6c4cf;
+                --crown-base: #776b63;
             }
             .rank-3 .ranking-crown {
-                --crown-color: #c08457;
-                --crown-base: #d4a070;
-                --crown-highlight: rgba(255, 255, 255, 0.34);
+                --crown-light: #f4c69c;
+                --crown-main: #c98156;
+                --crown-dark: #9d513a;
+                --crown-orb: #b97552;
+                --crown-base: #775848;
             }
             .metric > span {
                 display: block;
@@ -561,7 +576,7 @@
             </header>
 
             <div class="top-summary">
-                <div class="metric ranking-card rank-1"><div class="ranking-head"><span class="ranking-crown" aria-label="rank"><svg viewBox="0 0 64 48" role="img" aria-hidden="true"><path class="crown-body" d="M8 38.5c3.5-7.7 5.3-15.1 6.2-24.2l14.1 12.6L32 8l3.7 18.9 14.1-12.6c0.9 9.1 2.7 16.5 6.2 24.2H8Z" /><path class="crown-base" d="M10 38.5h44c1.2 0 2.2 1 2.2 2.2v2.6c0 1.2-1 2.2-2.2 2.2H10c-1.2 0-2.2-1-2.2-2.2v-2.6c0-1.2 1-2.2 2.2-2.2Z" /><circle cx="14.2" cy="14.1" r="2.8" /><circle cx="32" cy="7.6" r="3.2" /><circle cx="49.8" cy="14.1" r="2.8" /></svg><span>1</span></span><span>研究室時間ランキング</span></div><strong>42.5 h</strong><p><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></p></div><div class="metric ranking-card rank-2"><div class="ranking-head"><span class="ranking-crown" aria-label="rank"><svg viewBox="0 0 64 48" role="img" aria-hidden="true"><path class="crown-body" d="M8 38.5c3.5-7.7 5.3-15.1 6.2-24.2l14.1 12.6L32 8l3.7 18.9 14.1-12.6c0.9 9.1 2.7 16.5 6.2 24.2H8Z" /><path class="crown-base" d="M10 38.5h44c1.2 0 2.2 1 2.2 2.2v2.6c0 1.2-1 2.2-2.2 2.2H10c-1.2 0-2.2-1-2.2-2.2v-2.6c0-1.2 1-2.2 2.2-2.2Z" /><circle cx="14.2" cy="14.1" r="2.8" /><circle cx="32" cy="7.6" r="3.2" /><circle cx="49.8" cy="14.1" r="2.8" /></svg><span>2</span></span><span>研究室時間ランキング</span></div><strong>35.0 h</strong><p><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></p></div><div class="metric ranking-card rank-3"><div class="ranking-head"><span class="ranking-crown" aria-label="rank"><svg viewBox="0 0 64 48" role="img" aria-hidden="true"><path class="crown-body" d="M8 38.5c3.5-7.7 5.3-15.1 6.2-24.2l14.1 12.6L32 8l3.7 18.9 14.1-12.6c0.9 9.1 2.7 16.5 6.2 24.2H8Z" /><path class="crown-base" d="M10 38.5h44c1.2 0 2.2 1 2.2 2.2v2.6c0 1.2-1 2.2-2.2 2.2H10c-1.2 0-2.2-1-2.2-2.2v-2.6c0-1.2 1-2.2 2.2-2.2Z" /><circle cx="14.2" cy="14.1" r="2.8" /><circle cx="32" cy="7.6" r="3.2" /><circle cx="49.8" cy="14.1" r="2.8" /></svg><span>3</span></span><span>研究室時間ランキング</span></div><strong>28.2 h</strong><p><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></p></div>
+                <div class="metric ranking-card rank-1"><div class="ranking-head"><span class="ranking-crown" aria-label="1位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-1" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-1)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">1</text></svg></span><span>研究室時間ランキング</span></div><strong>42.5 h</strong><p><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></p></div><div class="metric ranking-card rank-2"><div class="ranking-head"><span class="ranking-crown" aria-label="2位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-2" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-2)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">2</text></svg></span><span>研究室時間ランキング</span></div><strong>35.0 h</strong><p><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></p></div><div class="metric ranking-card rank-3"><div class="ranking-head"><span class="ranking-crown" aria-label="3位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-3" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-3)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">3</text></svg></span><span>研究室時間ランキング</span></div><strong>28.2 h</strong><p><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></p></div>
             </div>
 
             
