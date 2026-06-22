@@ -187,7 +187,10 @@
                 background: rgba(239, 68, 68, 0.13);
             }
             .top-summary {
-                display: block;
+                display: grid;
+                grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.75fr);
+                gap: 14px;
+                align-items: stretch;
                 margin-bottom: 24px;
             }
             .ranking-block {
@@ -204,6 +207,9 @@
                 margin-bottom: 12px;
             }
             .ranking-block-head h2 {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
                 margin: 0;
                 color: var(--purple-900);
                 font-size: 18px;
@@ -214,6 +220,27 @@
                 color: var(--muted);
                 font-size: 11px;
                 font-weight: 800;
+            }
+            .ranking-title-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 22px;
+                height: 22px;
+                border-radius: 6px;
+                color: var(--purple-900);
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.62), rgba(167, 139, 250, 0.18));
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+            }
+            .ranking-title-icon svg {
+                display: block;
+                width: 15px;
+                height: 15px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 1.9;
+                stroke-linecap: round;
+                stroke-linejoin: round;
             }
             .ranking-list {
                 display: grid;
@@ -336,6 +363,119 @@
             }
             .muted-card {
                 opacity: 0.64;
+            }
+            .spotlight-block {
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 16px;
+            }
+            .spotlight-block-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 12px;
+            }
+            .spotlight-block-head h2 {
+                margin: 0;
+                color: var(--purple-900);
+                font-size: 18px;
+                font-weight: 800;
+            }
+            .spotlight-list {
+                display: grid;
+                gap: 10px;
+                flex: 1 1 auto;
+            }
+            .spotlight-item {
+                display: grid;
+                grid-template-columns: 36px minmax(0, 1fr);
+                align-items: center;
+                gap: 10px;
+                min-height: 62px;
+                padding: 10px;
+                border: 1px solid rgba(216, 200, 255, 0.16);
+                border-radius: 7px;
+                background:
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(0, 0, 0, 0.02)),
+                    rgba(255, 255, 255, 0.03);
+            }
+            .spotlight-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 34px;
+                height: 34px;
+                border-radius: 9px;
+                color: var(--purple-900);
+                background: rgba(167, 139, 250, 0.14);
+                box-shadow: inset 3px 0 0 rgba(167, 139, 250, 0.80);
+            }
+            .spotlight-icon svg {
+                display: block;
+                width: 18px;
+                height: 18px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .spotlight-icon-active {
+                color: #FDE68A;
+                background: rgba(183, 121, 31, 0.22);
+                box-shadow: inset 3px 0 0 rgba(242, 202, 60, 0.88);
+            }
+            .spotlight-icon-growth {
+                color: #86EFAC;
+                background: rgba(34, 197, 94, 0.14);
+                box-shadow: inset 3px 0 0 rgba(34, 197, 94, 0.84);
+            }
+            .spotlight-icon-consistent {
+                color: #BFDBFE;
+                background: rgba(37, 99, 235, 0.16);
+                box-shadow: inset 3px 0 0 rgba(96, 165, 250, 0.84);
+            }
+            .spotlight-content {
+                min-width: 0;
+            }
+            .spotlight-label {
+                display: block;
+                margin-bottom: 5px;
+                color: var(--accent);
+                font-size: 11px;
+                font-weight: 900;
+                letter-spacing: 0.03em;
+            }
+            .spotlight-row {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 10px;
+                min-width: 0;
+            }
+            .spotlight-row strong {
+                min-width: 0;
+                overflow: hidden;
+                color: var(--text);
+                font-size: 15px;
+                font-weight: 800;
+                line-height: 1.2;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .spotlight-row em {
+                flex: 0 0 auto;
+                color: var(--purple-800);
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: 1.2;
+                font-variant-numeric: tabular-nums;
+                white-space: nowrap;
             }
             .member-card {
                 background: var(--surface);
@@ -805,7 +945,8 @@
                 </header>
 
                 <div class="top-summary">
-                    <section class="ranking-block"><div class="ranking-block-head"><h2>研究時間ランキング</h2><span>Top 3</span></div><div class="ranking-list"><div class="ranking-row rank-1"><span class="ranking-crown" aria-label="1位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-current-1" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-current-1)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">1</text></svg></span><div class="ranking-member"><span class="ranking-grade">M2</span><span>佐藤 瑞起／Sato Mizuki</span></div><strong>6.7 h</strong></div><div class="ranking-row rank-2"><span class="ranking-crown" aria-label="2位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-current-2" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-current-2)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">2</text></svg></span><div class="ranking-member"><span class="ranking-grade">D2</span><span>石原 卓也／Ishihara Takuya</span></div><strong>5.8 h</strong></div><div class="ranking-row rank-3"><span class="ranking-crown" aria-label="3位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-current-3" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-current-3)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">3</text></svg></span><div class="ranking-member"><span class="ranking-grade">M2</span><span>笠井 直弥／Kasai Naoya</span></div><strong>3.5 h</strong></div></div></section>
+                    <section class="ranking-block"><div class="ranking-block-head"><h2><span class="ranking-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M7 5h10v3.8c0 3.2-2 5.7-5 6.5-3-.8-5-3.3-5-6.5V5Z" /><path d="M8.5 5H4v2.2c0 2 1.2 3.4 3.2 3.8M15.5 5H20v2.2c0 2-1.2 3.4-3.2 3.8" /><path d="M10 15h4v3h3v2H7v-2h3v-3Z" /></svg></span>研究時間ランキング</h2><span>Top 3</span></div><div class="ranking-list"><div class="ranking-row rank-1"><span class="ranking-crown" aria-label="1位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-current-1" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-current-1)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">1</text></svg></span><div class="ranking-member"><span class="ranking-grade">M2</span><span>佐藤 瑞起／Sato Mizuki</span></div><strong>6.7 h</strong></div><div class="ranking-row rank-2"><span class="ranking-crown" aria-label="2位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-current-2" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-current-2)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">2</text></svg></span><div class="ranking-member"><span class="ranking-grade">D2</span><span>石原 卓也／Ishihara Takuya</span></div><strong>5.8 h</strong></div><div class="ranking-row rank-3"><span class="ranking-crown" aria-label="3位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-current-3" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-current-3)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">3</text></svg></span><div class="ranking-member"><span class="ranking-grade">M2</span><span>笠井 直弥／Kasai Naoya</span></div><strong>3.5 h</strong></div></div></section>
+                    <section class="spotlight-block"><div class="spotlight-block-head"><h2>今週の注目</h2></div><div class="spotlight-list"><div class="spotlight-item spotlight-active"><span class="spotlight-icon spotlight-icon-active" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M12 3l2.4 5 5.5.8-4 3.9.9 5.5L12 15.6l-4.8 2.6.9-5.5-4-3.9 5.5-.8L12 3Z" /></svg></span><div class="spotlight-content"><span class="spotlight-label">Most Active</span><div class="spotlight-row"><strong>佐藤 瑞起</strong><em>6.7 h</em></div></div></div><div class="spotlight-item spotlight-growth"><span class="spotlight-icon spotlight-icon-growth" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M4 17l5-5 3 3 7-8" /><path d="M14 7h5v5" /></svg></span><div class="spotlight-content"><span class="spotlight-label">Biggest Growth</span><div class="spotlight-row"><strong>今井 惟斗</strong><em>-4.0 h</em></div></div></div><div class="spotlight-item spotlight-consistent"><span class="spotlight-icon spotlight-icon-consistent" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5 12l4 4L19 6" /><path d="M4 20h16" /></svg></span><div class="spotlight-content"><span class="spotlight-label">Consistent</span><div class="spotlight-row"><strong>佐藤 瑞起</strong><em>1日連続記録</em></div></div></div></div></section>
                 </div>
 
                 
@@ -1047,24 +1188,24 @@
             <div class="member-head">
                 <div>
                     <h2 class="member-title"><span class="grade-text">B4</span><span class="member-name">伊藤 蒼馬／Ito Soma</span></h2>
-                    <div class="member-place-legend"><span class="member-place-chip" style="--place-chip-bg:#424958;--place-chip-accent:rgba(100, 116, 139, 0.88);--place-chip-glow:rgba(100, 116, 139, 0.14);color:white">場所未設定 1.5 h</span></div>
+                    <div class="member-place-legend"><span class="member-place-chip" style="--place-chip-bg:#424958;--place-chip-accent:rgba(100, 116, 139, 0.88);--place-chip-glow:rgba(100, 116, 139, 0.14);color:white">場所未設定 9.0 h</span></div>
                 </div>
                 <div class="hours-group">
-                    <div class="hours-badge weekly-hours"><span class="hours-label">1週間の研究時間</span><div class="hours-value-row"><strong>1.5 h</strong><em class="week-change member-change negative">-96.5%</em></div></div>
+                    <div class="hours-badge weekly-hours"><span class="hours-label">1週間の研究時間</span><div class="hours-value-row"><strong>9.0 h</strong><em class="week-change member-change negative">-78.8%</em></div></div>
                     <div class="hours-badge secondary"><span class="hours-label">累計研究時間</span><div class="hours-value-row single"><strong>215.0 h</strong></div></div>
                 </div>
             </div>
 
             <div class="member-layout">
                 <div class="timeline-panel">
-                    <div class="week-calendar"><div class="week-calendar-header"><div class="week-calendar-corner">曜日</div><div class="week-time-header"><span class="week-time-label" style="left:0.000%">8</span><span class="week-time-label" style="left:6.250%">9</span><span class="week-time-label" style="left:12.500%">10</span><span class="week-time-label" style="left:18.750%">11</span><span class="week-time-label" style="left:25.000%">12</span><span class="week-time-label" style="left:31.250%">13</span><span class="week-time-label" style="left:37.500%">14</span><span class="week-time-label" style="left:43.750%">15</span><span class="week-time-label" style="left:50.000%">16</span><span class="week-time-label" style="left:56.250%">17</span><span class="week-time-label" style="left:62.500%">18</span><span class="week-time-label" style="left:68.750%">19</span><span class="week-time-label" style="left:75.000%">20</span><span class="week-time-label" style="left:81.250%">21</span><span class="week-time-label" style="left:87.500%">22</span><span class="week-time-label" style="left:93.750%">23</span><span class="week-time-label" style="left:100.000%">24</span></div></div><div class="week-calendar-rows"><div class="week-calendar-row"><div class="week-day-label weekday-0"><span>6/22</span><strong>月</strong><em>1.5 h</em></div><div class="week-time-row" style="--row-min-height:56px"><div class="calendar-event" style="left:12.500%;width:9.375%;top:6px;bottom:6px;--event-bg:#64748B;--event-bg-card:#424958;--event-bg-accent:rgba(100, 116, 139, 0.86);--event-bg-glow:rgba(100, 116, 139, 0.16);color:white" title="2026/06/22 10:00 - 2026/06/22 11:30 1.5 h 場所未設定 Weekly Report入力"><span class="calendar-event-text"><span>Weekly</span><span>Report入力</span></span></div></div></div><div class="week-calendar-row"><div class="week-day-label weekday-1"><span>6/23</span><strong>火</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-2"><span>6/24</span><strong>水</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-3"><span>6/25</span><strong>木</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-4"><span>6/26</span><strong>金</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-5"><span>6/27</span><strong>土</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-6"><span>6/28</span><strong>日</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div></div></div>
+                    <div class="week-calendar"><div class="week-calendar-header"><div class="week-calendar-corner">曜日</div><div class="week-time-header"><span class="week-time-label" style="left:0.000%">8</span><span class="week-time-label" style="left:6.250%">9</span><span class="week-time-label" style="left:12.500%">10</span><span class="week-time-label" style="left:18.750%">11</span><span class="week-time-label" style="left:25.000%">12</span><span class="week-time-label" style="left:31.250%">13</span><span class="week-time-label" style="left:37.500%">14</span><span class="week-time-label" style="left:43.750%">15</span><span class="week-time-label" style="left:50.000%">16</span><span class="week-time-label" style="left:56.250%">17</span><span class="week-time-label" style="left:62.500%">18</span><span class="week-time-label" style="left:68.750%">19</span><span class="week-time-label" style="left:75.000%">20</span><span class="week-time-label" style="left:81.250%">21</span><span class="week-time-label" style="left:87.500%">22</span><span class="week-time-label" style="left:93.750%">23</span><span class="week-time-label" style="left:100.000%">24</span></div></div><div class="week-calendar-rows"><div class="week-calendar-row"><div class="week-day-label weekday-0"><span>6/22</span><strong>月</strong><em>9.0 h</em></div><div class="week-time-row" style="--row-min-height:56px"><div class="calendar-event" style="left:12.500%;width:9.375%;top:6px;bottom:6px;--event-bg:#64748B;--event-bg-card:#424958;--event-bg-accent:rgba(100, 116, 139, 0.86);--event-bg-glow:rgba(100, 116, 139, 0.16);color:white" title="2026/06/22 10:00 - 2026/06/22 11:30 1.5 h 場所未設定 報告内容のスライド作成"><span class="calendar-event-text"><span>報告内容のスライド作成</span></span></div><div class="calendar-event" style="left:25.000%;width:46.875%;top:6px;bottom:6px;--event-bg:#64748B;--event-bg-card:#424958;--event-bg-accent:rgba(100, 116, 139, 0.86);--event-bg-glow:rgba(100, 116, 139, 0.16);color:white" title="2026/06/22 12:00 - 2026/06/22 19:30 7.5 h 場所未設定 報告内容のスライド作成"><span class="calendar-event-text"><span>報告内容のスライド作成</span></span></div></div></div><div class="week-calendar-row"><div class="week-day-label weekday-1"><span>6/23</span><strong>火</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-2"><span>6/24</span><strong>水</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-3"><span>6/25</span><strong>木</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-4"><span>6/26</span><strong>金</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-5"><span>6/27</span><strong>土</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div><div class="week-calendar-row"><div class="week-day-label weekday-6"><span>6/28</span><strong>日</strong><em>0.0 h</em></div><div class="week-time-row empty" style="--row-min-height:56px"></div></div></div></div>
                 </div>
 
                 <aside class="summary-panel">
                     <h3>内容まとめ</h3>
                     <ul class="summary-list"><li>研究内容の詳細記録なし</li></ul>
-                    <div class="history-chart"><h3>週間研究時間</h3><svg viewBox="0 0 330 178" role="img" aria-label="週間研究時間の推移"><line x1="42" y1="144.0" x2="294" y2="144.0" class="chart-grid" /><text x="34" y="148.0" text-anchor="end" class="chart-y-label">0</text><line x1="42" y1="81.0" x2="294" y2="81.0" class="chart-grid" /><text x="34" y="85.0" text-anchor="end" class="chart-y-label">30</text><line x1="42" y1="18.0" x2="294" y2="18.0" class="chart-grid" /><text x="34" y="22.0" text-anchor="end" class="chart-y-label">59</text><polyline points="42.0,81.4 63.0,82.4 84.0,82.4 105.0,31.5 126.0,67.6 147.0,88.8 168.0,93.1 189.0,53.8 210.0,65.5 231.0,105.8 252.0,77.1 273.0,53.8 294.0,140.8" class="history-line" /><circle cx="42.0" cy="81.4" r="3.2" fill="#5b2bb8"><title>3/30週 29.5 h</title></circle><circle cx="63.0" cy="82.4" r="3.2" fill="#5b2bb8"><title>4/6週 29.0 h</title></circle><circle cx="84.0" cy="82.4" r="3.2" fill="#5b2bb8"><title>4/13週 29.0 h</title></circle><circle cx="105.0" cy="31.5" r="3.2" fill="#5b2bb8"><title>4/20週 53.0 h</title></circle><circle cx="126.0" cy="67.6" r="3.2" fill="#5b2bb8"><title>4/27週 36.0 h</title></circle><circle cx="147.0" cy="88.8" r="3.2" fill="#5b2bb8"><title>5/4週 26.0 h</title></circle><circle cx="168.0" cy="93.1" r="3.2" fill="#5b2bb8"><title>5/11週 24.0 h</title></circle><circle cx="189.0" cy="53.8" r="3.2" fill="#5b2bb8"><title>5/18週 42.5 h</title></circle><circle cx="210.0" cy="65.5" r="3.2" fill="#5b2bb8"><title>5/25週 37.0 h</title></circle><circle cx="231.0" cy="105.8" r="3.2" fill="#5b2bb8"><title>6/1週 18.0 h</title></circle><circle cx="252.0" cy="77.1" r="3.2" fill="#5b2bb8"><title>6/8週 31.5 h</title></circle><circle cx="273.0" cy="53.8" r="3.2" fill="#5b2bb8"><title>6/15週 42.5 h</title></circle><circle cx="294.0" cy="140.8" r="4.2" fill="#EA580C"><title>6/22週 1.5 h</title></circle><text x="42.0" y="169" text-anchor="middle" class="chart-x-label">3/30</text><text x="84.0" y="169" text-anchor="middle" class="chart-x-label">4/13</text><text x="126.0" y="169" text-anchor="middle" class="chart-x-label">4/27</text><text x="168.0" y="169" text-anchor="middle" class="chart-x-label">5/11</text><text x="210.0" y="169" text-anchor="middle" class="chart-x-label">5/25</text><text x="252.0" y="169" text-anchor="middle" class="chart-x-label">6/8</text><text x="294.0" y="169" text-anchor="middle" class="chart-x-label">6/22</text></svg></div>
-                    <div class="history-chart monthly-chart"><h3>月間研究時間</h3><svg viewBox="0 0 330 176" role="img" aria-label="月間研究時間の棒グラフ"><line x1="42" y1="152.0" x2="294" y2="152.0" class="chart-grid" /><text x="34" y="156.0" text-anchor="end" class="chart-y-label">0</text><line x1="42" y1="85.0" x2="294" y2="85.0" class="chart-grid" /><text x="34" y="89.0" text-anchor="end" class="chart-y-label">87</text><line x1="42" y1="18.0" x2="294" y2="18.0" class="chart-grid" /><text x="34" y="22.0" text-anchor="end" class="chart-y-label">173</text><rect x="59.5" y="141.2" width="28.0" height="10.8" rx="3" class="history-bar"><title>3月 14.0 h</title></rect><rect x="122.5" y="35.5" width="28.0" height="116.5" rx="3" class="history-bar"><title>4月 150.5 h</title></rect><rect x="185.5" y="42.4" width="28.0" height="109.6" rx="3" class="history-bar"><title>5月 141.5 h</title></rect><rect x="248.5" y="79.6" width="28.0" height="72.4" rx="3" class="history-bar current"><title>6月 93.5 h</title></rect><text x="73.5" y="167" text-anchor="middle" class="chart-x-label">3月</text><text x="136.5" y="167" text-anchor="middle" class="chart-x-label">4月</text><text x="199.5" y="167" text-anchor="middle" class="chart-x-label">5月</text><text x="262.5" y="167" text-anchor="middle" class="chart-x-label">6月</text></svg></div>
+                    <div class="history-chart"><h3>週間研究時間</h3><svg viewBox="0 0 330 178" role="img" aria-label="週間研究時間の推移"><line x1="42" y1="144.0" x2="294" y2="144.0" class="chart-grid" /><text x="34" y="148.0" text-anchor="end" class="chart-y-label">0</text><line x1="42" y1="81.0" x2="294" y2="81.0" class="chart-grid" /><text x="34" y="85.0" text-anchor="end" class="chart-y-label">30</text><line x1="42" y1="18.0" x2="294" y2="18.0" class="chart-grid" /><text x="34" y="22.0" text-anchor="end" class="chart-y-label">59</text><polyline points="42.0,81.4 63.0,82.4 84.0,82.4 105.0,31.5 126.0,67.6 147.0,88.8 168.0,93.1 189.0,53.8 210.0,65.5 231.0,105.8 252.0,77.1 273.0,53.8 294.0,124.9" class="history-line" /><circle cx="42.0" cy="81.4" r="3.2" fill="#5b2bb8"><title>3/30週 29.5 h</title></circle><circle cx="63.0" cy="82.4" r="3.2" fill="#5b2bb8"><title>4/6週 29.0 h</title></circle><circle cx="84.0" cy="82.4" r="3.2" fill="#5b2bb8"><title>4/13週 29.0 h</title></circle><circle cx="105.0" cy="31.5" r="3.2" fill="#5b2bb8"><title>4/20週 53.0 h</title></circle><circle cx="126.0" cy="67.6" r="3.2" fill="#5b2bb8"><title>4/27週 36.0 h</title></circle><circle cx="147.0" cy="88.8" r="3.2" fill="#5b2bb8"><title>5/4週 26.0 h</title></circle><circle cx="168.0" cy="93.1" r="3.2" fill="#5b2bb8"><title>5/11週 24.0 h</title></circle><circle cx="189.0" cy="53.8" r="3.2" fill="#5b2bb8"><title>5/18週 42.5 h</title></circle><circle cx="210.0" cy="65.5" r="3.2" fill="#5b2bb8"><title>5/25週 37.0 h</title></circle><circle cx="231.0" cy="105.8" r="3.2" fill="#5b2bb8"><title>6/1週 18.0 h</title></circle><circle cx="252.0" cy="77.1" r="3.2" fill="#5b2bb8"><title>6/8週 31.5 h</title></circle><circle cx="273.0" cy="53.8" r="3.2" fill="#5b2bb8"><title>6/15週 42.5 h</title></circle><circle cx="294.0" cy="124.9" r="4.2" fill="#EA580C"><title>6/22週 9.0 h</title></circle><text x="42.0" y="169" text-anchor="middle" class="chart-x-label">3/30</text><text x="84.0" y="169" text-anchor="middle" class="chart-x-label">4/13</text><text x="126.0" y="169" text-anchor="middle" class="chart-x-label">4/27</text><text x="168.0" y="169" text-anchor="middle" class="chart-x-label">5/11</text><text x="210.0" y="169" text-anchor="middle" class="chart-x-label">5/25</text><text x="252.0" y="169" text-anchor="middle" class="chart-x-label">6/8</text><text x="294.0" y="169" text-anchor="middle" class="chart-x-label">6/22</text></svg></div>
+                    <div class="history-chart monthly-chart"><h3>月間研究時間</h3><svg viewBox="0 0 330 176" role="img" aria-label="月間研究時間の棒グラフ"><line x1="42" y1="152.0" x2="294" y2="152.0" class="chart-grid" /><text x="34" y="156.0" text-anchor="end" class="chart-y-label">0</text><line x1="42" y1="85.0" x2="294" y2="85.0" class="chart-grid" /><text x="34" y="89.0" text-anchor="end" class="chart-y-label">87</text><line x1="42" y1="18.0" x2="294" y2="18.0" class="chart-grid" /><text x="34" y="22.0" text-anchor="end" class="chart-y-label">173</text><rect x="59.5" y="141.2" width="28.0" height="10.8" rx="3" class="history-bar"><title>3月 14.0 h</title></rect><rect x="122.5" y="35.5" width="28.0" height="116.5" rx="3" class="history-bar"><title>4月 150.5 h</title></rect><rect x="185.5" y="42.4" width="28.0" height="109.6" rx="3" class="history-bar"><title>5月 141.5 h</title></rect><rect x="248.5" y="73.8" width="28.0" height="78.2" rx="3" class="history-bar current"><title>6月 101.0 h</title></rect><text x="73.5" y="167" text-anchor="middle" class="chart-x-label">3月</text><text x="136.5" y="167" text-anchor="middle" class="chart-x-label">4月</text><text x="199.5" y="167" text-anchor="middle" class="chart-x-label">5月</text><text x="262.5" y="167" text-anchor="middle" class="chart-x-label">6月</text></svg></div>
                 </aside>
             </div>
         </section>
@@ -1085,7 +1226,8 @@
                 </header>
 
                 <div class="top-summary">
-                    <section class="ranking-block"><div class="ranking-block-head"><h2>研究時間ランキング</h2><span>Top 3</span></div><div class="ranking-list"><div class="ranking-row rank-1"><span class="ranking-crown" aria-label="1位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-previous-1" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-previous-1)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">1</text></svg></span><div class="ranking-member"><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></div><strong>42.5 h</strong></div><div class="ranking-row rank-2"><span class="ranking-crown" aria-label="2位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-previous-2" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-previous-2)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">2</text></svg></span><div class="ranking-member"><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></div><strong>35.0 h</strong></div><div class="ranking-row rank-3"><span class="ranking-crown" aria-label="3位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-previous-3" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-previous-3)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">3</text></svg></span><div class="ranking-member"><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></div><strong>28.2 h</strong></div></div></section>
+                    <section class="ranking-block"><div class="ranking-block-head"><h2><span class="ranking-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M7 5h10v3.8c0 3.2-2 5.7-5 6.5-3-.8-5-3.3-5-6.5V5Z" /><path d="M8.5 5H4v2.2c0 2 1.2 3.4 3.2 3.8M15.5 5H20v2.2c0 2-1.2 3.4-3.2 3.8" /><path d="M10 15h4v3h3v2H7v-2h3v-3Z" /></svg></span>研究時間ランキング</h2><span>Top 3</span></div><div class="ranking-list"><div class="ranking-row rank-1"><span class="ranking-crown" aria-label="1位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-previous-1" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-previous-1)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">1</text></svg></span><div class="ranking-member"><span class="ranking-grade">B4</span><span>伊藤 蒼馬／Ito Soma</span></div><strong>42.5 h</strong></div><div class="ranking-row rank-2"><span class="ranking-crown" aria-label="2位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-previous-2" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-previous-2)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">2</text></svg></span><div class="ranking-member"><span class="ranking-grade">B4</span><span>秋吉 健吾／Akiyoshi Kengo</span></div><strong>35.0 h</strong></div><div class="ranking-row rank-3"><span class="ranking-crown" aria-label="3位"><svg viewBox="0 0 96 72" role="img" aria-hidden="true"><defs><linearGradient id="ranking-crown-gradient-previous-3" x1="8" y1="24" x2="88" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" class="crown-stop-light" /><stop offset="0.56" class="crown-stop-main" /><stop offset="1" class="crown-stop-dark" /></linearGradient></defs><path class="crown-body" fill="url(#ranking-crown-gradient-previous-3)" d="M11 61L17 22l21 18L48 15l10 25 21-18 6 39H11Z" /><path class="crown-shine" d="M48 15l10 25-8 21h-2V15Z" /><path class="crown-base" d="M16 62h64v5H16z" /><circle class="crown-orb" cx="16" cy="19" r="5.2" /><circle class="crown-orb" cx="48" cy="10" r="5.6" /><circle class="crown-orb" cx="80" cy="19" r="5.2" /><text class="crown-rank-text" x="48" y="48" text-anchor="middle">3</text></svg></span><div class="ranking-member"><span class="ranking-grade">B4</span><span>根岸 桜介／Negishi Osuke</span></div><strong>28.2 h</strong></div></div></section>
+                    <section class="spotlight-block"><div class="spotlight-block-head"><h2>今週の注目</h2></div><div class="spotlight-list"><div class="spotlight-item spotlight-active"><span class="spotlight-icon spotlight-icon-active" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M12 3l2.4 5 5.5.8-4 3.9.9 5.5L12 15.6l-4.8 2.6.9-5.5-4-3.9 5.5-.8L12 3Z" /></svg></span><div class="spotlight-content"><span class="spotlight-label">Most Active</span><div class="spotlight-row"><strong>伊藤 蒼馬</strong><em>42.5 h</em></div></div></div><div class="spotlight-item spotlight-growth"><span class="spotlight-icon spotlight-icon-growth" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M4 17l5-5 3 3 7-8" /><path d="M14 7h5v5" /></svg></span><div class="spotlight-content"><span class="spotlight-label">Biggest Growth</span><div class="spotlight-row"><strong>阿部 元暉</strong><em>+24.9 h</em></div></div></div><div class="spotlight-item spotlight-consistent"><span class="spotlight-icon spotlight-icon-consistent" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5 12l4 4L19 6" /><path d="M4 20h16" /></svg></span><div class="spotlight-content"><span class="spotlight-label">Consistent</span><div class="spotlight-row"><strong>伊藤 蒼馬</strong><em>6日連続記録</em></div></div></div></div></section>
                 </div>
 
                 
@@ -1448,7 +1590,7 @@
                     <h3>内容まとめ</h3>
                     <ul class="summary-list"><li>Weekly Reportを入力・整理した</li><li>報告用スライドを作成・修正した</li></ul>
                     <div class="history-chart"><h3>週間研究時間</h3><svg viewBox="0 0 330 178" role="img" aria-label="週間研究時間の推移"><line x1="42" y1="144.0" x2="294" y2="144.0" class="chart-grid" /><text x="34" y="148.0" text-anchor="end" class="chart-y-label">0</text><line x1="42" y1="81.0" x2="294" y2="81.0" class="chart-grid" /><text x="34" y="85.0" text-anchor="end" class="chart-y-label">30</text><line x1="42" y1="18.0" x2="294" y2="18.0" class="chart-grid" /><text x="34" y="22.0" text-anchor="end" class="chart-y-label">59</text><polyline points="42.0,81.4 64.9,82.4 87.8,82.4 110.7,31.5 133.6,67.6 156.5,88.8 179.5,93.1 202.4,53.8 225.3,65.5 248.2,105.8 271.1,77.1 294.0,53.8" class="history-line" /><circle cx="42.0" cy="81.4" r="3.2" fill="#5b2bb8"><title>3/30週 29.5 h</title></circle><circle cx="64.9" cy="82.4" r="3.2" fill="#5b2bb8"><title>4/6週 29.0 h</title></circle><circle cx="87.8" cy="82.4" r="3.2" fill="#5b2bb8"><title>4/13週 29.0 h</title></circle><circle cx="110.7" cy="31.5" r="3.2" fill="#5b2bb8"><title>4/20週 53.0 h</title></circle><circle cx="133.6" cy="67.6" r="3.2" fill="#5b2bb8"><title>4/27週 36.0 h</title></circle><circle cx="156.5" cy="88.8" r="3.2" fill="#5b2bb8"><title>5/4週 26.0 h</title></circle><circle cx="179.5" cy="93.1" r="3.2" fill="#5b2bb8"><title>5/11週 24.0 h</title></circle><circle cx="202.4" cy="53.8" r="3.2" fill="#5b2bb8"><title>5/18週 42.5 h</title></circle><circle cx="225.3" cy="65.5" r="3.2" fill="#5b2bb8"><title>5/25週 37.0 h</title></circle><circle cx="248.2" cy="105.8" r="3.2" fill="#5b2bb8"><title>6/1週 18.0 h</title></circle><circle cx="271.1" cy="77.1" r="3.2" fill="#5b2bb8"><title>6/8週 31.5 h</title></circle><circle cx="294.0" cy="53.8" r="4.2" fill="#EA580C"><title>6/15週 42.5 h</title></circle><text x="42.0" y="169" text-anchor="middle" class="chart-x-label">3/30</text><text x="84.0" y="169" text-anchor="middle" class="chart-x-label">4/13</text><text x="126.0" y="169" text-anchor="middle" class="chart-x-label">4/27</text><text x="168.0" y="169" text-anchor="middle" class="chart-x-label">5/11</text><text x="210.0" y="169" text-anchor="middle" class="chart-x-label">5/18</text><text x="252.0" y="169" text-anchor="middle" class="chart-x-label">6/1</text><text x="294.0" y="169" text-anchor="middle" class="chart-x-label">6/15</text></svg></div>
-                    <div class="history-chart monthly-chart"><h3>月間研究時間</h3><svg viewBox="0 0 330 176" role="img" aria-label="月間研究時間の棒グラフ"><line x1="42" y1="152.0" x2="294" y2="152.0" class="chart-grid" /><text x="34" y="156.0" text-anchor="end" class="chart-y-label">0</text><line x1="42" y1="85.0" x2="294" y2="85.0" class="chart-grid" /><text x="34" y="89.0" text-anchor="end" class="chart-y-label">87</text><line x1="42" y1="18.0" x2="294" y2="18.0" class="chart-grid" /><text x="34" y="22.0" text-anchor="end" class="chart-y-label">173</text><rect x="59.5" y="141.2" width="28.0" height="10.8" rx="3" class="history-bar"><title>3月 14.0 h</title></rect><rect x="122.5" y="35.5" width="28.0" height="116.5" rx="3" class="history-bar"><title>4月 150.5 h</title></rect><rect x="185.5" y="42.4" width="28.0" height="109.6" rx="3" class="history-bar"><title>5月 141.5 h</title></rect><rect x="248.5" y="79.6" width="28.0" height="72.4" rx="3" class="history-bar current"><title>6月 93.5 h</title></rect><text x="73.5" y="167" text-anchor="middle" class="chart-x-label">3月</text><text x="136.5" y="167" text-anchor="middle" class="chart-x-label">4月</text><text x="199.5" y="167" text-anchor="middle" class="chart-x-label">5月</text><text x="262.5" y="167" text-anchor="middle" class="chart-x-label">6月</text></svg></div>
+                    <div class="history-chart monthly-chart"><h3>月間研究時間</h3><svg viewBox="0 0 330 176" role="img" aria-label="月間研究時間の棒グラフ"><line x1="42" y1="152.0" x2="294" y2="152.0" class="chart-grid" /><text x="34" y="156.0" text-anchor="end" class="chart-y-label">0</text><line x1="42" y1="85.0" x2="294" y2="85.0" class="chart-grid" /><text x="34" y="89.0" text-anchor="end" class="chart-y-label">87</text><line x1="42" y1="18.0" x2="294" y2="18.0" class="chart-grid" /><text x="34" y="22.0" text-anchor="end" class="chart-y-label">173</text><rect x="59.5" y="141.2" width="28.0" height="10.8" rx="3" class="history-bar"><title>3月 14.0 h</title></rect><rect x="122.5" y="35.5" width="28.0" height="116.5" rx="3" class="history-bar"><title>4月 150.5 h</title></rect><rect x="185.5" y="42.4" width="28.0" height="109.6" rx="3" class="history-bar"><title>5月 141.5 h</title></rect><rect x="248.5" y="73.8" width="28.0" height="78.2" rx="3" class="history-bar current"><title>6月 101.0 h</title></rect><text x="73.5" y="167" text-anchor="middle" class="chart-x-label">3月</text><text x="136.5" y="167" text-anchor="middle" class="chart-x-label">4月</text><text x="199.5" y="167" text-anchor="middle" class="chart-x-label">5月</text><text x="262.5" y="167" text-anchor="middle" class="chart-x-label">6月</text></svg></div>
                 </aside>
             </div>
         </section>
